@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HISTOIRE - Thème 2 : Le monde depuis 1945</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+    body {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: "Britannic Bold", sans-serif;
+      color: #8B008B;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('ue.png') center center no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+      z-index: -1;
+    }
+    header {
+      text-align: center;
+      margin-top: 5vh;
+      flex-shrink: 0;
+    }
+    header h1 {
+      font-size: 4rem;
+      margin: 0;
+    }
+    header h2 {
+      font-size: 2rem;
+      margin: 0.5rem 0 2rem;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #8B008B;
+      padding: 0.5rem 1rem;
+      border: 2px solid #8B008B;
+      border-radius: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: #8B008B;
+      color: white;
+    }
+    .btn-container {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      flex-shrink: 0;
+    }
+    .btn-container a {
+      font-family: "Britannic Bold", sans-serif;
+      font-size: 1.2rem;
+      color: white;
+      background: #8B008B;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-container a:hover {
+      background: #6A006A;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HISTOIRE - Thème 2 : Le monde depuis 1945</h1>
+    <h2>Séance 3 : La construction européenne</h2>
+  </header>
+
+  <main>
+    <nav>
+      <a href="#">La déclaration schuman</a>
+      <a href="#">La CEE</a>
+      <a href="#">Les élargissements</a>
+      <a href="#">L'Europe aujourd'hui</a>
+    </nav>
+  </main>
+
+  <div class="btn-container">
+    <a href="enigme1.html">Énigme 1</a>
+  </div>
+</body>
+</html>

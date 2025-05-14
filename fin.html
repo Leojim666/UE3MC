@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'Europe aujourd'hui</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: "Britannic Bold", sans-serif;
+      color: #8B008B;
+      box-sizing: border-box;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('ue.png') center center no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+      z-index: -1;
+    }
+    header {
+      text-align: center;
+      padding: 1rem;
+      flex-shrink: 0;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    #mindmap {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: calc(100% - 4rem);
+      padding: 20px;
+    }
+    .branch {
+      width: 25%;
+    }
+    .branch h2 {
+      font-size: 2.25rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .branch ul {
+      list-style-type: disc;
+      padding-left: 1.2rem;
+    }
+    .branch li {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      line-height: 2;
+      position: relative;
+    }
+    .branch.left li .tooltip {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      margin-left: 10px;
+      background: #70f162;
+      border: 2px solid #8B008B;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      width: 200px;
+      font-size: 1rem;
+      color: #000;
+      z-index: 10;
+    }
+    .branch.right li .tooltip {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 100%;
+      margin-right: 10px;
+      background: #fb8068;
+      border: 2px solid #8B008B;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      width: 200px;
+      font-size: 1rem;
+      color: #000;
+      z-index: 10;
+    }
+    .branch.left li:hover .tooltip,
+    .branch.right li:hover .tooltip {
+      display: block;
+    }
+    .node {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+      border: 3px solid #8B008B;
+      border-radius: 50%;
+      width: 250px;
+      height: 250px;
+      text-align: center;
+      font-size: 1.75rem;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Conclusion</h1>
+  </header>
+  <div id="mindmap">
+    <div class="branch left">
+      <h2>Ce que l'Europe a réussi</h2>
+      <ul>
+        <li>Paix durable
+          <span class="tooltip">Depuis sa création en 1951, aucun pays membre n'a mené de guerre en Europe.</span>
+        </li>
+        <li>Marché unique
+          <span class="tooltip">Les personnes et les entreprises peuvent acheter et voyager librement sans frontière.</span>
+        </li>
+        <li>Monnaie unique (euro)
+          <span class="tooltip">20 pays utilisent l’euro, ce qui facilite les échanges et les voyages.</span>
+        </li>
+        <li>Citoyenneté européenne
+          <span class="tooltip">Chaque citoyen peut voter aux élections locales et européennes dans son pays de résidence.</span>
+        </li>
+        <li>Programmes d'échange (Erasmus+)
+          <span class="tooltip">Des milliers d'élèves et d'étudiants partent chaque année étudier dans un autre pays de l'UE.</span>
+        </li>
+        <li>Solidarité entre pays riches et pauvres
+          <span class="tooltip">L'UE finance des projets pour aider les régions plus pauvres à se développer.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="node">L'Europe aujourd'hui</div>
+
+    <div class="branch right">
+      <h2>Défis et problèmes</h2>
+      <ul>
+        <li>Pas d'armée européenne
+          <span class="tooltip">Chaque pays a sa propre armée, il n'existe pas de force militaire commune.</span>
+        </li>
+        <li>Crise de l'euro
+          <span class="tooltip">En 2010, certains pays ont failli faire faillite et ont dû être aidés.</span>
+        </li>
+        <li>Euroscepticisme
+          <span class="tooltip">De plus en plus d'Européens doutent de l'UE ou veulent une Europe différente.</span>
+        </li>
+        <li>Brexit
+          <span class="tooltip">En 2020, le Royaume-Uni a quitté l'UE, le premier pays à l'avoir fait.</span>
+        </li>
+        <li>Gestion des migrants
+          <span class="tooltip">Les pays peinent à se mettre d'accord pour accueillir réfugiés et migrants.</span>
+        </li>
+        <li>Débat sur la démocratie
+          <span class="tooltip">Certains trouvent que les décisions se prennent trop loin à Bruxelles.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CECA 1951 Interactif</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Britannic Bold", sans-serif;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('ue.png') center center no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+      z-index: -1;
+    }
+    #intro {
+      width: 75%;
+      margin: 20px auto;
+      font-size: 1.5rem;
+      color: #8B008B;
+      text-align: center;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      margin: 10px 20px;
+    }
+    .country-name {
+      flex: 0 0 200px;
+      font-size: 1.5rem;
+      color: #8B008B;
+    }
+    .flags {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      justify-content: space-around;
+      column-gap: 1rem;
+      align-items: center;
+    }
+    .flags img {
+      width: 4.9cm;
+      height: 2.8cm;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border 0.2s;
+    }
+    .flags img.selected {
+      border: 2px solid yellow;
+    }
+    #secret-code {
+      display: none;
+      text-align: center;
+      margin: 30px 0;
+      font-size: 2rem;
+      color: #8B008B;
+      cursor: pointer;
+    }
+    #treaties-btn {
+      display: none;
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+    }
+    #treaties-btn a {
+      text-decoration: none;
+      font-family: "Britannic Bold", sans-serif;
+      font-size: 1.2rem;
+      color: white;
+      background: #8B008B;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      transition: background 0.2s;
+    }
+    #treaties-btn a:hover {
+      background: #6A006A;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="intro">Voici les noms des 6 pays fondateurs de la CECA en 1951. Clique sur leurs drapeaux pour obtenir le code secret :</h1>
+
+  <div class="row" data-row="1">
+    <span class="country-name">FRANCE</span>
+    <div class="flags">
+      <img src="cro.png" data-flag="cro" alt="Croatie">
+      <img src="tch.png" data-flag="tch" alt="Tchécoslovaquie">
+      <img src="fra.png" data-flag="fra" alt="France">
+      <img src="sln.png" data-flag="sln" alt="Slénie">
+    </div>
+  </div>
+  <div class="row" data-row="2">
+    <span class="country-name">R.F.A.</span>
+    <div class="flags">
+      <img src="rou.png" data-flag="rou" alt="Roumanie">
+      <img src="gre.png" data-flag="gre" alt="Grèce">
+      <img src="all.png" data-flag="all" alt="Allemagne">
+      <img src="bel.png" data-flag="bel" alt="Belgique">
+    </div>
+  </div>
+  <div class="row" data-row="3">
+    <span class="country-name">ITALIE</span>
+    <div class="flags">
+      <img src="irl.png" data-flag="irl" alt="Irlande">
+      <img src="ita.png" data-flag="ita" alt="Italie">
+      <img src="lit.png" data-flag="lit" alt="Lituanie">
+      <img src="fin.png" data-flag="fin" alt="Finlande">
+    </div>
+  </div>
+  <div class="row" data-row="4">
+    <span class="country-name">PAYS-BAS</span>
+    <div class="flags">
+      <img src="lux.png" data-flag="lux" alt="Luxembourg">
+      <img src="bul.png" data-flag="bul" alt="Bulgarie">
+      <img src="hon.png" data-flag="hon" alt="Hongrie">
+      <img src="pba.png" data-flag="pba" alt="Pays-Bas">
+    </div>
+  </div>
+  <div class="row" data-row="5">
+    <span class="country-name">BELGIQUE</span>
+    <div class="flags">
+      <img src="all.png" data-flag="all" alt="Allemagne">
+      <img src="sue.png" data-flag="sue" alt="Suède">
+      <img src="dan.png" data-flag="dan" alt="Danemark">
+      <img src="bel.png" data-flag="bel" alt="Belgique">
+    </div>
+  </div>
+  <div class="row" data-row="6">
+    <span class="country-name">LUXEMBOURG</span>
+    <div class="flags">
+      <img src="est.png" data-flag="est" alt="Estonie">
+      <img src="lux.png" data-flag="lux" alt="Luxembourg">
+      <img src="chy.png" data-flag="chy" alt="Chypre">
+      <img src="mal.png" data-flag="mal" alt="Malte">
+    </div>
+  </div>
+
+  <div id="secret-code">CODE SECRET : ROME 1957</div>
+  <div id="treaties-btn"><a href="traitesrome.html">Traités de Rome</a></div>
+
+  <script>
+    const targetFlags = {1:'fra',2:'all',3:'ita',4:'pba',5:'bel',6:'lux'};
+    const codeEl = document.getElementById('secret-code');
+    const treatiesBtn = document.getElementById('treaties-btn');
+
+    document.querySelectorAll('.row').forEach(row => {
+      row.querySelectorAll('img').forEach(img => {
+        img.addEventListener('click', () => {
+          row.querySelectorAll('img').forEach(i=>i.classList.remove('selected'));
+          img.classList.add('selected');
+          checkSecret();
+        });
+      });
+    });
+
+    codeEl.addEventListener('click', () => {
+      treatiesBtn.style.display = 'block';
+    });
+
+    function checkSecret() {
+      let ok = true;
+      for (let r in targetFlags) {
+        const sel = document.querySelector(`.row[data-row="${r}"] img.selected`);
+        if (!sel || sel.dataset.flag !== targetFlags[r]) { ok=false; break; }
+      }
+      if (ok) {
+        codeEl.style.display = 'block';
+      } else {
+        codeEl.style.display = 'none';
+        treatiesBtn.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
